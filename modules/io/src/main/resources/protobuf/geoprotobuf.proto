@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "org.n52.tsf.io.protobuf.gen";
+option java_outer_classname = "GeoProtobuf";
+
+message Coordinate {
+    double x = 1;
+    double y = 2;
+    double z = 3;
+}
+
+message Geometry {
+    Type type = 1;
+    repeated Coordinate coordinates = 2;
+    repeated Geometry geometries = 3;
+
+    enum Type {
+        POINT = 0;
+        LINESTRING = 1;
+    }
+}
